@@ -21,9 +21,14 @@ struct ParserTreeNode {
     int type;
     ParserTreeNodeData data;
     ParserTreeNode *firstChild;
-    ParserTreeNode *next;
+    ParserTreeNode *next, *last;
 };
 
+ParserTreeNode *createNode();
+
+void addChild(ParserTreeNode *root, ParserTreeNode *child);
+
+void releaseNode(ParserTreeNode *node);
 
 int yywrap(void);
 
