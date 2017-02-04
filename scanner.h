@@ -123,7 +123,6 @@
 #endif
 
 #include <inttypes.h>
-
 typedef int8_t flex_int8_t;
 typedef uint8_t flex_uint8_t;
 typedef int16_t flex_int16_t;
@@ -304,7 +303,6 @@ extern char *yytext;
  * The user has a chance to override it with an option.
  */
 #include <unistd.h>
-
 #endif
 
 #ifndef YY_EXTRA_TYPE
@@ -350,7 +348,6 @@ extern "C" int yywrap ( void );
 #else
 
 extern int yywrap(void);
-
 #endif
 #endif
 
@@ -406,7 +403,7 @@ extern int yylex(void);
 #undef YY_DECL
 #endif
 
-#line 20 "scanner.l"
+#line 21 "scanner.l"
 
 
 #line 399 "scanner.h"

@@ -39,24 +39,42 @@
 #if YYDEBUG
 extern int yydebug;
 #endif
+/* "%code requires" blocks.  */
+#line 14 "parser.y" /* yacc.c:1909  */
+
+#include "parser_utils.h"
+
+#line 47 "parser.tab.h" /* yacc.c:1909  */
 
 /* Token type.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
 enum yytokentype {
-    ID = 258,
-    NUMBER = 259,
-    ID_F = 260,
-    ASSIGNMENT = 261,
-    LOwEST_PRIORITY_OPERATOR = 262,
-    MIDDLE_PRIORITY_OPERATOR = 263,
-    HIGHEST_PRIORITY_OPERATOR = 264
+    TOKEN_ASSIGNMENT = 258,
+    TOKEN_LOwEST_PRIORITY_OPERATOR = 259,
+    TOKEN_MIDDLE_PRIORITY_OPERATOR = 260,
+    TOKEN_HIGHEST_PRIORITY_OPERATOR = 261,
+    TOKEN_ID = 262,
+    TOKEN_ID_F = 263,
+    TOKEN_NUMBER = 264
 };
 #endif
 
 /* Value type.  */
 #if !defined YYSTYPE && !defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+
+union YYSTYPE {
+#line 16 "parser.y" /* yacc.c:1909  */
+
+    char *strValue;
+    char operator;
+    double dValue;
+    ParserTreeNode *node;
+
+#line 76 "parser.tab.h" /* yacc.c:1909  */
+};
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
