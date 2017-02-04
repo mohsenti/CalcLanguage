@@ -13,12 +13,12 @@
 #endif
 
 
-ParserTreeNode *createNode() {
+ParserTreeNode *createNode(ParserTreeNodeType type) {
     ParserTreeNode *node = malloc(sizeof(ParserTreeNode));
     node->firstChild = NULL;
     node->lastChild = NULL;
     node->next = NULL;
-    node->type = INVALID;
+    node->type = type;
     return node;
 }
 

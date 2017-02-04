@@ -5,13 +5,15 @@
 #ifndef CALCLANGUAGE_PARSER_UTILS_H
 #define CALCLANGUAGE_PARSER_UTILS_H
 
+typedef enum ParserTreeNodeType ParserTreeNodeType;
 enum ParserTreeNodeType {
     INVALID,
     FUNCTION,
     VARIABLE,
     ASSIGNMENT,
     OPERATOR,
-    VALUE
+    VALUE,
+    FAKE
 };
 
 typedef union ParserTreeNodeData ParserTreeNodeData;
@@ -26,13 +28,13 @@ union ParserTreeNodeData {
 typedef struct ParserTreeNode ParserTreeNode;
 struct ParserTreeNode {
     double value;
-    int type;
+    ParserTreeNodeType type;
     ParserTreeNodeData data;
     ParserTreeNode *firstChild, *lastChild;
     ParserTreeNode *next;
 };
 
-ParserTreeNode *createNode();
+ParserTreeNode *createNode(ParserTreeNodeType type);
 
 void addChild(ParserTreeNode *root, ParserTreeNode *child);
 
