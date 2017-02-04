@@ -26,7 +26,8 @@
 %type<node> S A E T F K E_list;
 
 %%
-    S: A S { if ($2 == NULL) { $$ = createNode(EXPRESSION_LIST); } else { $$ = $2; } addChild($$,$1); } | %empty { $$ = NULL ; };
+    S: A S { if ($2 == NULL) { $$ = createNode(EXPRESSION_LIST); root = $$; } else { $$ = $2; } addChild($$,$1); }
+        | %empty { $$ = NULL ; };
     A: ID ASSIGNMENT E { $$ = createNode(ASSIGNMENT); $$->data.Id = $1; addChild($$,$3); }
         | E { $$ = createNode(FAKE); addChild($$,$1); };
     E: E LOwEST_PRIORITY_OPERATOR T { $$ = createNode(OPERATOR); $$->data.operator = $2; addChild($$,$1); addChild($$,$3);}
