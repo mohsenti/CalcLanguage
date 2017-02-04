@@ -36,6 +36,8 @@ struct ParserTreeNode {
     ParserTreeNode *next;
 };
 
+ParserTreeNode *root;
+
 ParserTreeNode *createNode(ParserTreeNodeType type);
 
 void addChild(ParserTreeNode *root, ParserTreeNode *child);
