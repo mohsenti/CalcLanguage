@@ -15,7 +15,7 @@ int yywrap(void) {
     return 1;
 }
 
-int yyerror(char *error) {
+int yyerror(const char *error) {
     printf("%d-%d:%s\n", yylloc.first_line, yylloc.first_column, error);
     return 0;
 }

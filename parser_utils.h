@@ -7,7 +7,7 @@
 
 int yywrap(void);
 
-int yyerror(char *error);
+int yyerror(const char *error);
 
 int checkId(char *id);
 
