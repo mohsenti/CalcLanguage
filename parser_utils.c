@@ -48,7 +48,7 @@ int yyerror(const char *error) {
 int checkId(char *id) {
     if (strcmp(id, "sin") == 0 || strcmp(id, "cos") == 0 || strcmp(id, "tan") == 0 || strcmp(id, "cot") == 0 ||
         strcmp(id, "log") == 0)
-        return ID_F;
-    return ID;
+        return TOKEN_ID_F;
+    return TOKEN_ID;
 }
 
