@@ -5,6 +5,14 @@
 #ifndef CALCLANGUAGE_PARSER_UTILS_H
 #define CALCLANGUAGE_PARSER_UTILS_H
 
+enum ParserTreeNodeType {
+    INVALID,
+    FUNCTION,
+    VARIABLE,
+    ASSIGNMENT,
+    OPERATOR,
+    VALUE
+};
 
 typedef union ParserTreeNodeData ParserTreeNodeData;
 union ParserTreeNodeData {
