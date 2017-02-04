@@ -6,12 +6,22 @@
 
 %}
 
-%token  ID NUMBER ID_F ASSIGNMENT LOwEST_PRIORITY_OPERATOR MIDDLE_PRIORITY_OPERATOR HIGHEST_PRIORITY_OPERATOR
-
 %define parse.error verbose
 %debug
 %defines
 %locations
+
+%union {
+    char *strValue;
+    char operator;
+    double dValue;
+    ParserTreeNode *node;
+}
+
+%token<operator> ASSIGNMENT LOwEST_PRIORITY_OPERATOR MIDDLE_PRIORITY_OPERATOR HIGHEST_PRIORITY_OPERATOR;
+%token<strValue> ID ID_F
+%token<dValue> NUMBER;
+%type<node> S A E T F K E_list;
 
 %%
     S: A S | %empty ;
