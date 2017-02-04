@@ -13,6 +13,8 @@ enum ParserTreeNodeType {
     ASSIGNMENT,
     OPERATOR,
     VALUE,
+    VALUE_LIST,
+    EXPRESSION_LIST,
     FAKE
 };
 
