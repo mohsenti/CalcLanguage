@@ -28,8 +28,8 @@ struct ParserTreeNode {
     double value;
     int type;
     ParserTreeNodeData data;
-    ParserTreeNode *firstChild;
-    ParserTreeNode *next, *last;
+    ParserTreeNode *firstChild, *lastChild;
+    ParserTreeNode *next;
 };
 
 ParserTreeNode *createNode();
