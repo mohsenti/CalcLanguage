@@ -4,12 +4,37 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <malloc.h>
 #include "parser_utils.h"
 #include "parser.tab.h"
 
 #ifdef yywrap
 #undef yywrap
 #endif
+
+
+ParserTreeNode *createNode() {
+    ParserTreeNode *node = malloc(sizeof(ParserTreeNode));
+    node->firstChild = NULL;
+    node->lastChild = NULL;
+    node->next = NULL;
+    node->type = INVALID;
+    return node;
+}
+
+void addChild(ParserTreeNode *root, ParserTreeNode *child) {
+    if (root->lastChild == NULL) {
+        root->firstChild = child;
+        root->lastChild = child;
+    } else {
+        root->lastChild->next = child;
+        root->lastChild = child;
+    }
+}
+
+void releaseNode(ParserTreeNode *node) {
+    free(node);
+}
 
 int yywrap(void) {
     return 1;
@@ -26,3 +51,4 @@ int checkId(char *id) {
         return ID_F;
     return ID;
 }
+
